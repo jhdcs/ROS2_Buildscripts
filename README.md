@@ -7,22 +7,22 @@ NOTE: These scripts assume you're working with a base directory of "~/ros2_ws". 
 
 Brief description of each:
 
-> buildall : runs "colcon build --symlink-install" on the base directory
->> EXAMPLE USAGE:
+**buildall** : runs "colcon build --symlink-install" on the base directory
+> EXAMPLE USAGE:
   $ buildall
   
-> buildtest_dep : runs "colcon build --symlink-install --packages-above <package>" followed by "colcon test --packages-above <package>" on the base directory
->> EXAMPLE USAGE:
+**buildtest_dep** : runs "colcon build --symlink-install --packages-above <package>" followed by "colcon test --packages-above <package>" on the base directory
+> EXAMPLE USAGE:
   $ buildtest_dep rclcpp
 
-> buildtest_one : runs "colcon build --symlink-install --packages-select <package>" followed by "colcon test --packages-select <package>" on the base directory
->> EXAMPLE USAGE:
+**buildtest_one** : runs "colcon build --symlink-install --packages-select <package>" followed by "colcon test --packages-select <package>" on the base directory
+> EXAMPLE USAGE:
   $ buildtest_one rclcpp
 
-> rebuildall : Basically runs the steps defined at https://index.ros.org/doc/ros2/Installation/Maintaining-a-Source-Checkout/ on your main repository. Useful if you're getting build errors and think it might be from someone updating other repositories.
->> EXAMPLE USAGE:
+**rebuildall** : Basically runs the steps defined at https://index.ros.org/doc/ros2/Installation/Maintaining-a-Source-Checkout/ on your main repository. Useful if you're getting build errors and think it might be from someone updating other repositories.
+> EXAMPLE USAGE:
   $ rebuildall
 
-> testall : runs "colcon test" on your main repository. Yes, I am actually that lazy.
->> EXAMPLE USAGE:
+**testall** : runs "colcon test" on your main repository. Yes, I am actually that lazy.
+> EXAMPLE USAGE:
   $ testall
