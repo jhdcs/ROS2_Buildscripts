@@ -1,0 +1,14 @@
+#!/bin/bash
+
+####################
+##### BUILDALL #####
+####################
+#
+# Author: Jacob Hassold <jhassold@dcscorp.com>
+#
+# Script for building all ROS 2 repositories in the directory ~/ros2_ws using colcon
+# Requires you to have installed ROS 2 in ros2_ws!
+cd ~/ros2_ws
+echo "colcon build --symlink-install"
+colcon build --symlink-install
+cd -

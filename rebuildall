@@ -1,0 +1,34 @@
+#!/bin/bash
+
+##########################
+####### REBUILDALL #######
+##########################
+#
+# Author: Jacob Hassold <jhassold@dcscorp.com>
+#
+# Completely refreshes the ROS 2 workspace located in ~/ros2_ws
+# Follows the steps described in "Maintaining a Source Checkout" in the ros.org index
+# Assumes you want the master branch of all repositories
+
+cd ~/ros2_ws
+
+# Update repository list
+mv -i ros2.repos ros2.repos.old
+wget https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos
+vcs custom --args remote update
+
+# Update repositories
+vcs custom --args remote update
+
+# Download new source code
+vcs import src < ros2.repos
+vcs pull src
+
+# Remove old build, install, and log folders
+rm -r ./build
+rm -r ./install
+rm -r ./log
+
+# Rebuild the workspace
+colcon build --symlink-install
+cd -

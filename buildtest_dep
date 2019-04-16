@@ -1,0 +1,19 @@
+#!/bin/bash
+
+#############################
+####### BUILDTEST_DEP #######
+#############################
+#
+# Author: Jacob Hassold <jhassold@dcscorp.com>
+#
+# Builds and tests the specified ROS 2 package, and ALL packages that depend on it
+# Assumes that the ROS 2 package lives somewhere inside ~/ros2_ws
+
+PACKAGE=$1
+cd ~/ros2_ws
+echo "colcon build --symlink-install --packages-above $PACKAGE"
+colcon build --symlink-install --packages-above $PACKAGE
+echo "\n++++Beginning testing...++++\n"
+echo "colcon test --packages-above $PACKAGE"
+colcon test --packages-above $PACKAGE
+cd -

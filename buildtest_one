@@ -1,0 +1,19 @@
+#!/bin/bash
+
+#############################
+####### BUILDTEST_ONE #######
+#############################
+#
+# Author: Jacob Hassold <jhassold@dcscorp.com>
+#
+# Builds and tests the specified ROS 2 package
+# Assumes that the ROS 2 package lives somewhere inside ~/ros2_ws
+
+PACKAGE=$1
+cd ~/ros2_ws
+echo "colcon build --symlink-install --packages-select $PACKAGE"
+colcon build --symlink-install --packages-select $PACKAGE
+echo "\n++++Beginning testing...++++\n"
+echo "colcon test --packages-select $PACKAGE"
+colcon test --packages-select $PACKAGE
+cd -

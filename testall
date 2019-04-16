@@ -1,0 +1,15 @@
+#!/bin/bash
+
+#######################
+####### TESTALL #######
+#######################
+#
+# Author: Jacob Hassold <jhassold@dcscorp.com>
+#
+# Runs a test on all packages in the ROS 2 workspace in ~/ros2_ws
+# Assumes your ROS 2 workspace is in ~/ros2_ws
+
+cd ~/ros2_ws
+echo "colcon test"
+colcon test
+cd -
