@@ -13,7 +13,9 @@ PACKAGE=$1
 cd ~/ros2_ws
 echo "colcon build --symlink-install --packages-select $PACKAGE"
 colcon build --symlink-install --packages-select $PACKAGE
-echo "\n++++Beginning testing...++++\n"
+printf "\n++++++++++++++++++++++++++++\n"
+printf "++++Beginning testing...++++\n"
+printf "++++++++++++++++++++++++++++\n"
 echo "colcon test --packages-select $PACKAGE"
 colcon test --packages-select $PACKAGE
 cd -
