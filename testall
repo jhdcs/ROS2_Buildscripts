@@ -9,7 +9,11 @@
 # Runs a test on all packages in the ROS 2 workspace in ~/ros2_ws
 # Assumes your ROS 2 workspace is in ~/ros2_ws
 
+function log_command(){
+	echo "Executing: " $@
+	$@
+}
+
 cd ~/ros2_ws
-echo "colcon test"
-colcon test
+log_command colcon test
 cd -

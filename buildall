@@ -8,7 +8,12 @@
 #
 # Script for building all ROS 2 repositories in the directory ~/ros2_ws using colcon
 # Requires you to have installed ROS 2 in ros2_ws!
+
+function log_command(){
+	echo "Executing: " $@
+	$@
+}
+
 cd ~/ros2_ws
-echo "colcon build --symlink-install --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
-colcon build --symlink-install --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+log_command colcon build --symlink-install --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 cd -

@@ -9,15 +9,18 @@
 # Builds and tests the specified ROS 2 package
 # Assumes that the ROS 2 package lives somewhere inside ~/ros2_ws
 
+function log_command(){
+	echo "Executing: " $@
+	$@
+}
+
 PACKAGE=$1
 cd ~/ros2_ws
-echo "colcon build --symlink-install --packages-select $PACKAGE --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
-colcon build --symlink-install --packages-select $PACKAGE --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON 
+log_command colcon build --symlink-install --packages-select $PACKAGE --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 if [$? = 0]; then
 	printf "\n++++++++++++++++++++++++++++\n"
 	printf "++++Beginning testing...++++\n"
 	printf "++++++++++++++++++++++++++++\n"
-	echo "colcon test --packages-select $PACKAGE"
-	colcon test --packages-select $PACKAGE
+	log_command colcon test --packages-select $PACKAGE
 fi
 cd -
