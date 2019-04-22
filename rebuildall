@@ -15,7 +15,6 @@ cd ~/ros2_ws
 # Update repository list
 mv -i ros2.repos ros2.repos.old
 wget https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos
-vcs custom --args remote update
 
 # Update repositories
 vcs custom --args remote update
@@ -30,5 +29,7 @@ rm -r ./install
 rm -r ./log
 
 # Rebuild the workspace
-colcon build --symlink-install
+colcon build --symlink-install --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+
+# Returns to the directory that we started in (before the first command)
 cd -
