@@ -17,7 +17,7 @@ function log_command(){
 PACKAGE=$1
 cd ~/ros2_ws
 log_command colcon build --symlink-install --packages-select $PACKAGE --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
-if [$? = 0]; then
+if [ $? = 0 ]; then
 	printf "\n++++++++++++++++++++++++++++\n"
 	printf "++++Beginning testing...++++\n"
 	printf "++++++++++++++++++++++++++++\n"
